@@ -230,11 +230,11 @@ Widget SettingsPage() {
         ),
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(
-            right: 100,
+            // right: 80,
             bottom: 40,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
