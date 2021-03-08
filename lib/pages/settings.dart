@@ -1,73 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:numberpicker/numberpicker.dart';
 import 'package:porter/components/custom_switch.dart';
-
-Widget SettingsItem({ String title, String description, List<Widget> elements }) {
-  return Builder(
-    builder: (context) => Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.white,
-      ),
-      padding: EdgeInsets.all(30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              SizedBox(height: 5),
-              // Flexible(
-              //   child: Text(
-              //     description,
-              //     style: TextStyle(
-              //       fontSize: 16,
-              //       fontWeight: FontWeight.w500,
-              //     ),
-              //   ),
-              // ),
-              // Container(
-              //   width: MediaQuery.of(context).size.width * .45,
-              //   child: Flexible(
-              //     child: Text(
-              //       description,
-              //       style: TextStyle(
-              //         fontSize: 16,
-              //         fontWeight: FontWeight.w500,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              Text(
-                description,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(width: MediaQuery.of(context).size.width/20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: elements.asMap().entries.map((entry) => Container(
-              child: entry.value,
-              margin: EdgeInsets.only(right: elements.length > entry.key ? 30 : 0),
-            )).toList(),
-          ),
-        ],
-      ),
-    ),
-  );
-}
+import 'package:porter/components/settings_item.dart';
 
 Widget SettingsPage() {
   int dimInterval = 10;
@@ -142,21 +77,6 @@ Widget SettingsPage() {
                       onChanged: (value) => setState(() => syncInterval = value),
                     ),
                   ),
-                  // GestureDetector(
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       shape: BoxShape.circle,
-                  //       color: Colors.blue[200],
-                  //     ),
-                  //     padding: EdgeInsets.all(5),
-                  //     // margin: EdgeInsets.all(10),
-                  //     child: Icon(
-                  //       Icons.refresh,
-                  //       color: Colors.black,
-                  //       size: 45,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
               SettingsItem(
