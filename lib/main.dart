@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:porter/pages/doc.dart';
 import 'package:porter/pages/settings.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+var myrecipe = (Recipe()
+  ..title = "Mermaid Water Cocktail"
+  ..category = Category.COCKTAIL
+  ..prepTime = Duration(minutes: 5)
+  ..cookTime = Duration(seconds: 0)
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -28,7 +36,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: SettingsPage(),
+      home: DocPage(recipe: myrecipe),
     );
   }
 }
