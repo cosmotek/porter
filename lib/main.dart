@@ -9,7 +9,55 @@ void main() {
 
 var myrecipe = (Recipe()
   ..title = "Mermaid Water Cocktail"
-  ..category = Category.COCKTAIL
+  ..description = "A sweet and tropical blue-green cocktail with fruit juices and rum"
+  ..previewImageUrl = "https://www.troprockin.com/wp-content/uploads/2020/02/mermaid-water-drink.jpg.webp"
+  ..servingQuantity = 1
+  ..categories = [CategoryTag.DRINK, CategoryTag.COCKTAIL]
+  ..authors = ["Seth Moeckel <seth.moeckel@gmail.com>"]
+  ..sourceCredits = "Tammy from TropRockin.com https://www.troprockin.com/recipes/mermaid-water-drink-recipe/"
+  ..ingredients = [
+    (RecipeComponent()
+      ..name = "Spiced Rum"
+      ..quantityOunces = 1.5
+      ..previewImage = ""
+      ..productLink = ""
+    ),
+    (RecipeComponent()
+      ..name = "Coconut Rum"
+      ..quantityOunces = 1.5
+      ..previewImage = ""
+      ..productLink = ""
+    ),
+    (RecipeComponent()
+      ..name = "Blue Curacao"
+      ..quantityOunces = 1.0
+      ..previewImage = ""
+      ..productLink = ""
+    ),
+    (RecipeComponent()
+      ..name = "Pineapple Juice"
+      ..quantityOunces = 6.0
+      ..previewImage = ""
+      ..productLink = ""
+    ),
+    (RecipeComponent()
+      ..name = "Lime Juice"
+      ..notes = "usually one large lime"
+      ..quantityOunces = 1.0
+      ..previewImage = ""
+      ..productLink = ""
+    ),
+    (RecipeComponent()
+      ..name = "Lime Wheels"
+      ..notes = "for garnish"
+      ..quantityOunces = 0
+      ..optional = true
+      ..previewImage = ""
+      ..productLink = ""
+    )
+  ]
+  ..steps = []
+  ..notes = []
   ..prepTime = Duration(minutes: 5)
   ..cookTime = Duration(seconds: 0)
 );

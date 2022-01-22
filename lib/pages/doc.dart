@@ -1,36 +1,61 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class RecipeComponent {
   String name;
-  Double quantityOunces;
   bool optional;
   String notes;
+
+  double quantityOunces;
   String productLink;
+  String previewImage;
 }
 
 class RecipeStep {
-  Uint16 stepNum;
+  int stepNum;
   String name;
   String description;
   String optional;
 }
 
-enum Category {
+enum CategoryTag {
   COCKTAIL,
+  DRINK,
+  LUNCH,
+  BRUNCH,
+  DINNER,
+  BREAKFAST,
+  SNACK,
+  POTLUCK,
+
+  ASIAN,
+  FRENCH,
+  AMERICAN,
+  LATIN,
+  GREEK,
+  CHINESE,
+  THAI,
+  VIETNAMESE,
+  ITALIAN,
+  MEXICAN,
+  CAJUN
 }
 
 class Recipe {
   String title;
-  Category category;
+  String description;
+  String previewImageUrl;
+
+  int servingQuantity;
+  List<CategoryTag> categories;
   List<String> authors;
+  String sourceCredits;
+
   List<RecipeComponent> ingredients;
   List<RecipeStep> steps;
+  List<String> notes;
 
   Duration prepTime;
   Duration cookTime;
-  Uint16 servesQuantity;
 }
 
 Widget DocPage({ Recipe recipe }) {
@@ -79,7 +104,7 @@ Widget DocPage({ Recipe recipe }) {
         ),
         body: Column(
           children: [
-            Text(recipe.category.toString()),
+            Text(recipe.categories.map((a) => a.toString()).reduce((value, element) => value + ", " + element)),
             Text(recipe.title),
             SizedBox(height: 40),
             Row(
@@ -92,7 +117,7 @@ Widget DocPage({ Recipe recipe }) {
                 Text(recipe.cookTime.toString()),
                 Icon(Icons.people),
                 Text("cook time"),
-                Text(recipe.servesQuantity.toString()),
+                Text(recipe.servingQuantity.toString()),
               ],
             ),
             Text(recipe.authors.toString()),
